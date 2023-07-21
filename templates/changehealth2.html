@@ -1,0 +1,68 @@
+<!-- changehealth2.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/form.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <h2>{{title}}</h2>
+        <form action="/changehealth3?symptomsID={{symptomsID}}" method="POST" class="form">
+            <div class="item">
+                <label class="label_left" for="recorddate">日付</label>
+                <input id="recorddate" type="date" name="recorddate" value="{{table_data.recorddate}}"><br>
+            </div>
+            <div class="item">
+                <fieldset>
+                    <legend>AM・PM</legend>
+                    {% if table_data.timezone == 0 %}
+                        <label for="AM">AM</label>
+                        <input id="AM" type="radio" name="timezone" value="0" required checked>
+                        <label for="PM">PM</label>
+                        <input id="PM" type="radio" name="timezone" value="1" required><br>
+                    {% else %}
+                        <label for="AM">AM</label>
+                        <input id="AM" type="radio" name="timezone" value="0" required>
+                        <label for="PM">PM</label>
+                        <input id="PM" type="radio" name="timezone" value="1" required checked><br>
+                    {% endif %}
+                </fieldset>
+            </div>
+            <div class="item">
+                <label class="label_left" for="temperature">体温</label>
+                <input id="temperature" type="number" name="temperature" step="0.1" placeholder="体温を入力" value="{{table_data.temperature}}" required><br>
+            </div>
+            <div class="item">
+                <fieldset>
+                    <legend>症状</legend>
+                    {% for symptoms in symptoms_list_eng %}
+                        {% if table_data[symptoms] == 0 %}
+                            <label for={{symptoms}}>{{symptoms_list_jp[loop.index-1]}}</label>
+                            <input id={{symptoms}} type="checkbox" name={{symptoms}} value="1"><br>
+                        {% else %}
+                            <label for={{symptoms}}>{{symptoms_list_jp[loop.index-1]}}</label>
+                            <input id={{symptoms}} type="checkbox" name={{symptoms}} value="1" checked><br>
+                        {% endif %}
+                    {% endfor %}
+                </fieldset>
+            </div>
+            <div class="btns">
+                <input type="submit" value="修正"><input type="reset" value="リセット"><br>
+            </div>
+        </form>
+    </body>
+</html>

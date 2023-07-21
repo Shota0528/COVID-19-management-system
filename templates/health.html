@@ -1,0 +1,73 @@
+<!-- health.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/form.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <h2>{{title}}</h2>
+        必ず体温測定・記録し、症状がある項目の欄にチェックを付けてください。
+        <form action="/health2" method="POST" class="form">
+            <div class="item">
+                <label class="label_left" for="recorddate">日付</label>
+                <input id="recorddate" type="date" name="recorddate" value={{dt_now}}><br>
+            </div>
+            <div class="item">
+                <fieldset>
+                    <legend>AM・PM</legend>
+                    <label for="AM">AM</label>
+                    <input id="AM" type="radio" name="timezone" value="0" required>
+                    <label for="PM">PM</label>
+                    <input id="PM" type="radio" name="timezone" value="1" required>
+                </fieldset>
+            </div>
+            <div class="item">
+                <label class="label_left" for="temperature">体温</label>
+                <input id="temperature" type="number" name="temperature" step="0.1" placeholder="体温を入力" required><br>
+            </div>
+            <div class="item">
+                <fieldset>
+                    <legend>症状</legend>
+                    <label for="jointpain">関節・筋肉痛</label>
+                    <input id="jointpain" type="checkbox" name="jointpain" value="1"><br>
+                    <label for="washedoutfeeling">だるさ</label>
+                    <input id="washedoutfeeling" type="checkbox" name="washedoutfeeling" value="1"><br>
+                    <label for="headache">頭痛</label>
+                    <input id="headache" type="checkbox" name="headache" value="1"><br>
+                    <label for="sorethroat">咽頭痛</label>
+                    <input id="sorethroat" type="checkbox" name="sorethroat" value="1"><br>
+                    <label for="breathless">息苦しさ</label>
+                    <input id="breathless" type="checkbox" name="breathless" value="1"><br>
+                    <label for="coughsneezing">咳・くしゃみ</label>
+                    <input id="coughsneezing" type="checkbox" name="coughsneezing" value="1"><br>
+                    <label for="nausea">吐気・嘔吐</label>
+                    <input id="nausea" type="checkbox" name="nausea" value="1"><br>
+                    <label for="abdominalpain">腹痛・下痢</label>
+                    <input id="abdominalpain" type="checkbox" name="abdominalpain" value="1"><br>
+                    <label for="tastedisorder">味覚障害</label>
+                    <input id="tastedisorder" type="checkbox" name="tastedisorder" value="1"><br>
+                    <label for="olfactorydisorder">嗅覚障害</label>
+                    <input id="olfactorydisorder" type="checkbox" name="olfactorydisorder" value="1"><br>
+                </fieldset>
+            </div>
+            <div class="btns">
+                <input type="submit" value="登録"><input type="reset" value="リセット"><br>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+table{
+    border: solid 2px;
+}
+
+table.table{
+    border-collapse: collapse;
+    border: 1;
+}
+  
+table.table td{
+    border-top: 1px solid black;
+    border-left: 2px solid black;
+    padding: 3px;
+}
+  
+table.table td.PM_top_line{
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+}
+
+th{
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+
+.design {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #cdf4f0;
+}
+.design tr:nth-child(2n+1) {
+    background: #e9faf9;
+}
+.design th {
+    padding: 10px;
+    border: solid 1px #ffffff;
+    background: #778ca3;
+    color: #ffffff;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+.design td {
+    padding: 10px;
+    border: solid 1px #ffffff;
+}

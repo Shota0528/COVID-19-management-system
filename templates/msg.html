@@ -1,0 +1,30 @@
+<!-- msg.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/msg.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+        <link rel="stylesheet" href="../static/css/link.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <div class="box">
+            <span class="box-title">{{title}}</span>
+            <p>{{msg}}</p>
+            <p>{{linkname}}は<a href="{{link}}">こちら</a></p>
+        </div>
+    </body>
+</html>

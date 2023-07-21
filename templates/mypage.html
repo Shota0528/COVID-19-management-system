@@ -1,0 +1,44 @@
+<!-- mypage.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+        <link rel="stylesheet" href="../static/css/link.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <h2>{{title}}</h2>
+        <div>
+            出席停止期間　
+            {% if infectflag == 1 %}
+                {{attendancestop}}
+            {% else %}
+                特になし
+            {% endif %}
+        </div>
+        <ul>
+            <li><a href="/health">体調観察登録</a></li>
+            <li><a href="/checkhealth">体調観察確認</a></li>
+            <li><a href="/changehealth">体調観察修正</a></li>
+            <li><a href="/conduct">行動記録登録</a></li>
+            <li><a href="/checkconduct">行動記録確認</a></li>
+            <li><a href="/changeconduct">行動記録修正</a></li>
+            <li><a href="/infect">濃厚接触者・感染者登録</a></li>
+            <li><a href="/checkinfect">濃厚接触者・感染者確認</a></li>
+            <li><a href="/changeinfect">濃厚接触者・感染者修正</a></li>
+        </ul>
+    </body>
+</html>

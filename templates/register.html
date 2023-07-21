@@ -1,0 +1,69 @@
+<!-- register.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/form.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <h2>{{title}}</h2>
+        <form action="/register2" method="POST" class="form">
+            <div class="item">
+                <label class="label_left" for="username">名前</label>
+                <input id="username" type="text" name="username" placeholder="名前を入力" required><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="userpassword">パスワード</label>
+                <input id="userpassword" type="password" name="userpassword" placeholder="パスワードを入力" required><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="usercode">学籍(個人)番号</label>
+                <input id="usercode" type="text" name="usercode" placeholder="学籍(個人)番号を入力" required><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="facultyoffice">学科/部課室</label>
+                <input id="facultyoffice" type="text" name="facultyoffice" placeholder="学科/部課室" required><br>
+            </div>
+
+
+            <div class="item">
+                <label class="label_left" for="phone">電話番号</label>
+                <input id="phone" type="tel" name="phone" placeholder="電話番号を入力" required><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="email">メールアドレス</label>
+                <input id="email" type="email" name="email" placeholder="メールアドレスを入力" required><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="kind">種類</label>
+                <select id="kind" name="kind" required>
+                    <option value="student">学生</option>
+                    <option value="teacherfull">教員(専任)</option>
+                    <option value="teachercontract">教員(特任)</option>
+                    <option value="teacherpart">教員(非常勤)</option>
+                    <option value="stafffull">職員(専任)</option>
+                    <option value="staffcontract">職員(嘱託)</option>
+                    <option value="staffpart">職員(臨時)</option>
+                </select><br>
+            </div>
+            <div class="btns">
+                <input type="submit" value="登録">
+                <input type="reset" value="リセット"><br>
+            </div>
+        </form>
+    </body>
+</html>

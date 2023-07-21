@@ -1,0 +1,74 @@
+<!-- conduct.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/form.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <h2>{{title}}</h2>
+        主に, 自宅以外での飲食や不特定な人との接触する場所への出入り, 長時間の接触等を中心に記載すること.<br>
+        出発地と到着地は住所または具体的な名称で入力できます.<br>
+        <br>
+        <form action="/conduct2" method="POST" class="form">
+            <div class="item">
+                <label class="label_left" for="recorddate">日付</label>
+                <input id="recorddate" type="date" name="recorddate" value={{dt_now}} required><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="actiontime0">開始時間</label>
+                <input id="actiontime0" type="time" name="actiontime0" required>
+            </div>
+            <div class="item">
+                <label class="label_left" for="actiontime1">終了時間</label>
+                <input id="actiontime1" type="time" name="actiontime1" required>
+            </div>
+            <div class="item">
+                <label class="label_left" for="location">場所(行先)</label>
+                <input id="location" type="text" name="location" placeholder="場所(行先)を入力"><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="movementmethod">移動方法</label>
+                <input id="movementmethod" type="text" name="movementmethod" placeholder="移動方法を入力"><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="dtp">出発地</label>
+                <input id="dtp" type="text" name="dtp" placeholder="出発地を入力"><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="arr">到着地</label>
+                <input id="arr" type="text" name="arr" placeholder="到着地を入力"><br>
+            </div>
+            <div class="item">
+                <fieldset>
+                    <legend>同行者</legend>
+                    <label for="companionflag">同行者(有りの場合にチェック)</label>
+                    <input id="companionflag" type="checkbox" name="companionflag" value="1"><br>
+                    <label for="relationshipnum">間柄と人数</label>
+                    <input id="relationshipnum" type="text" name="relationshipnum" placeholder="例:大学の友人1名"><br>
+                </fieldset>
+            </div>
+            <div class="item">
+                <label class="label_left" for="specialmention">特記事項(同行者名等とマスク使用状況)</label><br>
+                <textarea id="specialmention" name="specialmention" placeholder="特記事項を入力"></textarea><br>
+            </div>
+            <div class="btns">
+                <input type="submit" value="登録"><input type="reset" value="リセット"><br>
+            </div>
+        </form>
+    </body>
+</html>

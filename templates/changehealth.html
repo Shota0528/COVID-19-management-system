@@ -1,0 +1,75 @@
+<!-- changehealth.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+        <link rel="stylesheet" href="../static/css/health.css">
+        <link rel="stylesheet" href="../static/css/link.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <h2>{{title}}</h2>
+        <table border="1" class="table design">
+            <tr>
+                <th></th>
+                <th></th>
+                {% for date in date_list %}
+                    <th>{{date}}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td rowspan="12">AM</td>
+                <td></td>
+                {% for symptomsID in symptomsID_list_AM %}
+                    <td>
+                        <form action="/changehealth2" method="POST">
+                            <input type="hidden" name="symptomsID" value={{symptomsID}}>
+                            <input type="submit" value="修正" >
+                        </form>
+                    </td>
+                {% endfor %}
+            </tr>
+            {% for row_data in table_data_AM.values %}
+                <tr>
+                    <td>{{table_index[loop.index-1]}}</td>
+                    {% for item in row_data %}
+                        <td>{{item}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            <tr>
+                <td rowspan="12" class="PM_top_line">PM</td>
+                <td class="PM_top_line"></td>
+                {% for symptomsID in symptomsID_list_PM %}
+                    <td class="PM_top_line">
+                        <form action="/changehealth2" method="POST">
+                            <input type="hidden" name="symptomsID" value={{symptomsID}}>
+                            <input type="submit" value="修正" >
+                        </form>
+                    </td>
+                {% endfor %}
+            </tr>
+            {% for row_data in table_data_PM.values %}
+            <tr>
+                <td>{{table_index[loop.index-1]}}</td>
+                {% for item in row_data %}
+                    <td>{{item}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table> 
+    </body>
+</html>

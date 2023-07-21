@@ -1,0 +1,33 @@
+<!-- login.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+        <link rel="stylesheet" href="../static/css/login.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <div class="login">
+            <div class="login-triangle"></div>
+            <h2 class="login-header">Log in</h2>
+            <form action="/login2" method="POST" class="login-container">
+                <p><input type="text" name="usercode" placeholder="学籍(個人)番号" required ></p>
+                <p><input type="password" name="userpassword" placeholder="パスワード" required></p>
+                <p><input type="submit" value="Log in"></p>
+            </form>
+        </div>
+    </body>
+</html>

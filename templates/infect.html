@@ -1,0 +1,52 @@
+<!-- infect.html -->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/header.css">
+        <link rel="stylesheet" href="../static/css/form.css">
+        <link rel="stylesheet" href="../static/css/li.css">
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <p class="logo">COVID-19管理システム Team18</p>
+                <ul class="navi">
+                    <li><a href="/">トップ</a></li>
+                    <li><a href="/mypage">マイページ</a></li>
+                    <li><a href="/admin/top">管理者トップ</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="main"></div>
+        <h2>{{title}}</h2>
+        covid-19の濃厚接触者または感染者と診断された場合は記録してください。
+        <form action="/infect2" method="POST" class="form">
+            <div class="item">
+                <fieldset>
+                    <legend>濃厚接触・感染</legend>
+                    <label for="closecontact">濃厚接触者</label>
+                    <input id="closecontact" type="checkbox" name="closecontact" value="1"><br>
+                    <label for="infect">感染者</label>
+                    <input id="infect" type="checkbox" name="infect" value="1"><br>
+                </fieldset>
+            </div>
+            <div class="item">
+                <label class="label_left" for="attendancestop">出席停止期間</label>
+                <input id="attendancestop" type="text" name="attendancestop" placeholder="出席停止期間を入力"><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="medicalinstitutionname">医療機関名</label>
+                <input id="medicalinstitutionname" type="text" name="medicalinstitutionname" placeholder="医療機関名を入力"><br>
+            </div>
+            <div class="item">
+                <label class="label_left" for="doctorname">医師氏名</label>
+                <input id="doctorname" type="text" name="doctorname" placeholder="医師氏名を入力"><br>
+            </div>
+            <div class="btns">
+                <input type="submit" value="登録"><input type="reset" value="リセット"><br>
+            </div>
+        </form>
+    </body>
+</html>
